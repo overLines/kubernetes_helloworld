@@ -131,7 +131,7 @@ Namespace = Virtueller Cluster im Cluster
 
 ### **1. Repository klonen:**
 ```bash
-git clone https://github.com/benjaminbusch/kubernetes_helloworld.git
+git clone https://github.com/overlines/kubernetes_helloworld.git
 cd kubernetes_helloworld
 ```
 
@@ -686,8 +686,7 @@ Dieses Projekt steht unter der MIT-Lizenz. Siehe [LICENSE](LICENSE) für Details
 ## 👨‍💻 Autor
 
 **Benjamin Busch**
-- GitHub: [@benjaminbusch](https://github.com/benjaminbusch)
-- E-Mail: benjamin@example.com
+- GitHub: [@overlines](https://github.com/overlines)
 
 ---
 
