@@ -1,0 +1,16 @@
+{
+  "name": "kubernetes-hello-world",
+  "version": "1.0.0",
+  "description": "Eine einfache Hello World Anwendung für Kubernetes mit Rancher Desktop",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "keywords": ["kubernetes", "rancher-desktop", "docker", "node.js", "hello-world"],
+  "author": "Benjamin Busch",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

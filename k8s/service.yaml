@@ -1,0 +1,21 @@
+# Kubernetes Service für Hello World App
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+  namespace: hello-world
+  labels:
+    app: hello-world
+    author: benjamin-busch
+spec:
+  # Service Type - NodePort für lokalen Zugriff mit Rancher Desktop
+  type: NodePort
+  selector:
+    app: hello-world
+  ports:
+  - name: http
+    port: 80          # Port des Service
+    targetPort: 3000  # Port des Containers
+    nodePort: 30080   # Externer Port (30000-32767 Bereich)
+  # Session Affinity für bessere User Experience
+  sessionAffinity: ClientIP

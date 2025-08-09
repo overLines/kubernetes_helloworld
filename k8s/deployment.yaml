@@ -1,0 +1,56 @@
+# Kubernetes Deployment für Hello World App
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+  namespace: hello-world
+  labels:
+    app: hello-world
+    author: benjamin-busch
+spec:
+  # Anzahl der Pod-Replicas
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world-container
+        # Docker Image (wird später gebaut)
+        image: hello-world:latest
+        # Image Pull Policy für lokale Development
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        # Umgebungsvariablen
+        env:
+        - name: PORT
+          value: "3000"
+        - name: NODE_ENV
+          value: "production"
+        # Resource Limits für bessere Performance
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 256Mi
+        # Liveness Probe - überprüft ob Container gesund ist
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        # Readiness Probe - überprüft ob Container bereit für Traffic ist
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5

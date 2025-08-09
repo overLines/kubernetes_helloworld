@@ -1,0 +1,8 @@
+# Namespace für unsere Hello World Anwendung
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hello-world
+  labels:
+    app: hello-world
+    created-by: benjamin-busch
